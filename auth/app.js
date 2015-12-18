@@ -31,9 +31,9 @@ app.use(sessions({
 	secret: 'dafndsafnfsdna',
 	duration: 30 * 60 * 1000,
 	activeDuration: 5 * 60 * 1000
-	httpOnly: true // dont let browser access cookies ever
-	secure: true //only use cookies over https
-	ephemeral: true
+	//httpOnly: true // dont let browser access cookies ever
+	//secure: true //only use cookies over https
+	//ephemeral: true
 }));
 
 app.use(csrf());
@@ -119,4 +119,4 @@ app.get('/logout', function(req,res) {
 	req.session.reset();
 	res.redirect('/');
 });
-app.listen(3000);
+app.listen(process.env.port || 3000);
